@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swapnadip Ghosh | Digital Architect</title>
+    <meta name="description" content="Portfolio of Swapnadip Ghosh (Aethron) - Full-Stack Developer & Digital Architect.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #030712;
+            --surface: rgba(17, 24, 39, 0.7);
+            --surface-bright: rgba(31, 41, 55, 0.8);
+            --primary: #22d3ee;
+            --primary-glow: rgba(34, 211, 238, 0.3);
+            --secondary: #818cf8;
+            --accent: #f472b6;
+            --text-vibrant: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(34, 211, 238, 0.4);
+            --glass: blur(12px) saturate(180%);
+            --font-main: 'Outfit', sans-serif;
+            --font-heading: 'Syne', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            cursor: none !important;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-vibrant);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* --- Mobile Responsive Fixes --- */
+        @media (max-width: 768px) {
+            * { cursor: auto !important; } /* Restore cursor on mobile */
+            #cursor-dot, #cursor-ring { display: none; }
+            .container { padding: 0 1.5rem; }
+            section { padding: 4rem 0; }
+            .hero-title { font-size: 3rem !important; }
+            .bento-grid { grid-template-columns: 1fr !important; }
+            .bento-item.col-2 { grid-column: span 1 !important; }
+            .hud-line, .hud-text { display: none; }
+            nav { bottom: 20px; top: auto; width: 90%; font-size: 0.7rem; gap: 1rem; }
+        }
+
+        /* --- Cinematic Grain Overlay --- */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* --- HUD Decorative Elements --- */
+        .hud-line {
+            position: fixed;
+            background: var(--border);
+            z-index: 100;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+        .hud-v { width: 1px; height: 100vh; top: 0; }
+        .hud-h { height: 1px; width: 100vw; left: 0; }
+        .hud-v-1 { left: 30px; }
+        .hud-v-2 { right: 30px; }
+        .hud-h-1 { top: 30px; }
+        .hud-h-2 { bottom: 30px; }
+
+        .hud-text {
+            position: fixed;
+            font-family: var(--font-mono);
+            font-size: 9px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 101;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        .hud-tl { top: 10px; left: 40px; }
+        .hud-tr { top: 10px; right: 40px; }
+        .hud-bl { bottom: 10px; left: 40px; }
+        .hud-br { bottom: 10px; right: 40px; }
+
+        /* --- Custom Cursor 2.0 --- */
+        #cursor-dot {
+            position: fixed;
+            width: 8px; height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.1s ease;
+            box-shadow: 0 0 10px var(--primary);
+        }
+        #cursor-ring {
+            position: fixed;
+            width: 40px; height: 40px;
+            border: 1px solid var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        /* --- Background Canvas --- */
+        #main-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            opacity: 0.35;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: var(--surface);
+            backdrop-filter: var(--glass);
+            -webkit-backdrop-filter: var(--glass);
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 2rem;
+            opacity: 0;
+            animation: slide-down 0.8s 1s ease forwards;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        @keyframes slide-down {
+            from { transform: translate(-50%, -20px); opacity: 0; }
+            to { transform: translate(-50%, 0); opacity: 1; }
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-pretitle {
+            font-family: var(--font-mono);
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: block;
+            opacity: 0;
+            animation: fade-up 0.8s 0.2s ease forwards;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 800;
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            margin-bottom: 2rem;
+        }
+
+        .hero-title span {
+            display: block;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fade-up 0.8s ease forwards;
+        }
+
+        .hero-title span:nth-child(1) { animation-delay: 0.4s; }
+        .hero-title span:nth-child(2) { 
+            animation-delay: 0.6s;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            max-width: 600px;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fade-up 0.8s 0.8s ease forwards;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            opacity: 0;
+            animation: fade-up 0.8s 1s ease forwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg);
+            box-shadow: 0 10px 20px -5px var(--primary-glow);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text-vibrant);
+            backdrop-filter: var(--glass);
+        }
+
+        /* --- Sections --- */
+        section { padding: 8rem 0; }
+
+        .section-header { margin-bottom: 4rem; }
+        .section-num { font-family: var(--font-mono); color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem; display: block; }
+        .section-title { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.02em; }
+
+        /* --- Bento Grid (3D Tilt) --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            gap: 1.5rem;
+        }
+
+        .bento-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            backdrop-filter: var(--glass);
+            -webkit-backdrop-filter: var(--glass);
+            transition: border 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .bento-item:hover { border-color: var(--primary); }
+
+        .bento-item.col-2 { grid-column: span 2; }
+        .bento-item.row-2 { grid-row: span 2; }
+
+        .bento-icon { font-size: 2.5rem; margin-bottom: auto; color: var(--primary); transform: translateZ(30px); }
+        .bento-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); transform: translateZ(20px); }
+        .bento-content { font-size: 1.25rem; font-weight: 600; transform: translateZ(40px); }
+        .bento-content b { color: var(--primary); }
+
+        /* --- Projects --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: var(--surface);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: var(--glass);
+            -webkit-backdrop-filter: var(--glass);
+        }
+        .project-card:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .project-img { width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid var(--border); opacity: 0.8; }
+        .project-info { padding: 2rem; }
+
+        /* --- Terminal --- */
+        .terminal {
+            background: #0d1117;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+            font-family: var(--font-mono);
+            margin-top: 4rem;
+        }
+        .term-header { background: #161b22; padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+        .term-body { padding: 2rem; font-size: 0.9rem; color: #c9d1d9; min-height: 200px; }
+        .line { margin-bottom: 0.5rem; }
+        .cyan { color: var(--primary); }
+        .purple { color: var(--secondary); }
+
+        /* --- Animations --- */
+        @keyframes fade-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <!-- HUD ELEMENTS -->
+    <div class="hud-line hud-v hud-v-1"></div>
+    <div class="hud-line hud-v hud-v-2"></div>
+    <div class="hud-line hud-h hud-h-1"></div>
+    <div class="hud-line hud-h hud-h-2"></div>
+
+    <div class="hud-text hud-tl">AETHRON // NEURAL_LINK_v2.5</div>
+    <div class="hud-text hud-tr" id="live-timer">00:00:00:00</div>
+    <div class="hud-text hud-bl">STATUS: ACTIVE_ARCHITECT</div>
+    <div class="hud-text hud-br">CORE: 22.5726° N, 88.3639° E</div>
+
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+    <canvas id="main-canvas"></canvas>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Work</a>
+        <a href="mailto:ghoshswapnadip7@gmail.com">Contact</a>
+    </nav>
+
+    <main class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <span class="hero-pretitle">Hello World, I'm</span>
+            <h1 class="hero-title">
+                <span>Swapnadip</span>
+                <span>Ghosh.</span>
+            </h1>
+            <p class="hero-desc">
+                Digital Architect & Full-Stack Developer. I merge high-end aesthetics with lethal logic to build the next generation of digital ecosystems.
+            </p>
+            <div class="hero-btns">
+                <a href="https://github.com/Aethron-fr" class="btn btn-primary">GitHub Profile</a>
+                <a href="mailto:ghoshswapnadip7@gmail.com" class="btn btn-outline">Initiate Handshake</a>
+            </div>
+        </section>
+
+        <!-- About Section (Bento + 3D Tilt) -->
+        <section id="about">
+            <div class="section-header reveal">
+                <span class="section-num">01.</span>
+                <h2 class="section-title">The Blueprint</h2>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="bento-item col-2 row-2 reveal">
+                    <div class="bento-icon">🔭</div>
+                    <div class="bento-label">Current Focus</div>
+                    <div class="bento-content">Developing <b>PortFolioMaker</b> — A next-gen tool for digital soul expression.</div>
+                </div>
+                
+                <div class="bento-item reveal">
+                    <div class="bento-icon">🌱</div>
+                    <div class="bento-label">Evolution</div>
+                    <div class="bento-content">Mastering <b>React</b> & Neural Logic.</div>
+                </div>
+                
+                <div class="bento-item reveal">
+                    <div class="bento-icon">⚡</div>
+                    <div class="bento-label">Philosophy</div>
+                    <div class="bento-content">Not too serious in life — <b>Lethal in code</b>.</div>
+                </div>
+                
+                <div class="bento-item col-2 reveal">
+                    <div class="bento-icon">🤝</div>
+                    <div class="bento-label">Collab</div>
+                    <div class="bento-content">Open for high-impact Open Source and creative partnerships.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <div class="section-header reveal">
+                <span class="section-num">02.</span>
+                <h2 class="section-title">The Arsenal</h2>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; background: var(--surface); padding: 3rem; border-radius: 24px; border: 1px solid var(--border);" class="reveal">
+                <img src="https://skillicons.dev/icons?i=html,css,js,python,react,nodejs,express,flask,django,mongodb,postgres,figma,docker,git&perline=7" alt="Stack" style="max-width: 100%; filter: drop-shadow(0 0 15px rgba(34, 211, 238, 0.2));">
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="section-header reveal">
+                <span class="section-num">03.</span>
+                <h2 class="section-title">Archive Works</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Aethron-fr&repo=PortFolioMaker&theme=tokyonight&hide_border=true" alt="P1" class="project-img">
+                    <div class="project-info">
+                        <h3 class="section-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">PortFolioMaker</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">The specialized engine behind this experience.</p>
+                        <a href="https://github.com/Aethron-fr/PortFolioMaker" style="text-decoration:none; color:var(--primary); font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 1px;">[ VIEW_SOURCE ]</a>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Aethron-fr&repo=rock-paper-scissor-python&theme=tokyonight&hide_border=true" alt="P2" class="project-img">
+                    <div class="project-info">
+                        <h3 class="section-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Neural_RPS</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">Advanced game logic exploration in Python.</p>
+                        <a href="https://github.com/Aethron-fr/rock-paper-scissor-python" style="text-decoration:none; color:var(--primary); font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 1px;">[ VIEW_SOURCE ]</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terminal -->
+        <div class="terminal reveal">
+            <div class="term-header">
+                <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                <span style="margin-left: auto; font-size: 0.7rem; color: #484f58;">neural_shell — 80x24</span>
+            </div>
+            <div class="term-body" id="term-body"></div>
+        </div>
+
+    </main>
+
+    <footer style="padding: 5rem 0; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted);">
+        <p>&copy; 2024 Designed & Built by Swapnadip Ghosh</p>
+        <p style="margin-top: 1rem; font-size: 0.7rem; letter-spacing: 2px;">NEURAL_CONNECTED // ALL_SYSTEMS_GO</p>
+    </footer>
+
+    <script>
+        // --- Cursor Logic ---
+        const dot = document.getElementById('cursor-dot');
+        const ring = document.getElementById('cursor-ring');
+        let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX; mouseY = e.clientY;
+            dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        });
+
+        function animCursor() {
+            ringX += (mouseX - ringX - 20) * 0.15;
+            ringY += (mouseY - ringY - 20) * 0.15;
+            ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+            requestAnimationFrame(animCursor);
+        }
+        animCursor();
+
+        // --- Background Canvas ---
+        const canvas = document.getElementById('main-canvas');
+        const ctx = canvas.getContext('2d');
+        let w, h, particles = [];
+        
+        function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+            particles = [];
+            for(let i=0; i<80; i++) particles.push({
+                x: Math.random()*w, 
+                y: Math.random()*h, 
+                vx: (Math.random()-0.5)*0.3, 
+                vy: (Math.random()-0.5)*0.3, 
+                s: Math.random()*2
+            });
+        }
+        window.addEventListener('resize', resize); resize();
+
+        function draw() {
+            ctx.clearRect(0,0,w,h);
+            ctx.fillStyle = 'rgba(34, 211, 238, 0.2)';
+            ctx.strokeStyle = 'rgba(34, 211, 238, 0.05)';
+            particles.forEach((p, i) => {
+                p.x += p.vx; p.y += p.vy;
+                if(p.x<0 || p.x>w) p.vx*=-1; if(p.y<0 || p.y>h) p.vy*=-1;
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
+                for(let j=i+1; j<particles.length; j++) {
+                    const d = Math.hypot(p.x-particles[j].x, p.y-particles[j].y);
+                    if(d<150) { 
+                        ctx.beginPath(); 
+                        ctx.moveTo(p.x, p.y); 
+                        ctx.lineTo(particles[j].x, particles[j].y); 
+                        ctx.stroke(); 
+                    }
+                }
+            });
+            requestAnimationFrame(draw);
+        }
+        draw();
+
+        // --- HUD Timer ---
+        setInterval(() => {
+            const n = new Date();
+            document.getElementById('live-timer').textContent = `${n.getHours().toString().padStart(2,'0')}:${n.getMinutes().toString().padStart(2,'0')}:${n.getSeconds().toString().padStart(2,'0')}:${Math.floor(n.getMilliseconds()/10).toString().padStart(2,'0')}`;
+        }, 10);
+
+        // --- 3D Tilt for Bento ---
+        document.querySelectorAll('.bento-item').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const r = card.getBoundingClientRect();
+                const x = e.clientX - r.left, y = e.clientY - r.top;
+                const rx = (y - r.height/2) / 15, ry = (r.width/2 - x) / 15;
+                card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+            });
+            card.addEventListener('mouseleave', () => card.style.transform = `rotateX(0deg) rotateY(0deg)`);
+        });
+
+        // --- Reveal on Scroll ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // --- Terminal Typing ---
+        const lines = ["λ ~ initiate --neural-link", "Accessing digital soul...", "Handshake complete. Status: OPTIMAL", " ", "λ ~ echo 'Welcome to my world.'", "Ready to innovate. █"];
+        const termBody = document.getElementById('term-body');
+        let lineIdx = 0;
+        function type() {
+            if(lineIdx < lines.length) {
+                const l = document.createElement('div'); l.className = 'line';
+                if(lines[lineIdx].startsWith('λ')) l.innerHTML = `<span class="cyan">${lines[lineIdx].slice(0,1)}</span> ${lines[lineIdx].slice(1)}`;
+                else l.textContent = lines[lineIdx];
+                termBody.appendChild(l); lineIdx++; setTimeout(type, 400);
+            }
+        }
+        const termObs = new IntersectionObserver((entries) => { if(entries[0].isIntersecting) { type(); termObs.disconnect(); } }, { threshold: 0.5 });
+        termObs.observe(document.querySelector('.terminal'));
+    </script>
+</body>
+</html>

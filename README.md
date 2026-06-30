@@ -1,65 +1,69 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A0A0F,50:14141C,100:0A0A0F&height=260&section=header" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0A0A0F,100:0A0A0F&height=4&section=header" width="100%"/>
 
 <br/>
 
-<h1 align="center" style="font-weight:600; letter-spacing:4px;">
-  S W A P N A D I P &nbsp; G H O S H
-</h1>
+```
 
-<p align="center">
-  <img src="https://img.shields.io/badge/-FULL--STACK%20DEVELOPER-0A0A0F?style=flat-square&labelColor=0A0A0F&color=0A0A0F" height="0"/>
-  <sub><b>FULL-STACK DEVELOPER</b> &nbsp;◆&nbsp; WEST BENGAL, INDIA &nbsp;◆&nbsp; <a href="https://github.com/Aethron-fr"><b>@Aethron-fr</b></a></sub>
-</p>
+ _____      ___   ___ _  _   _   ___ ___ ___
+/ __\ \    / /_\ | _ \ \| | /_\ |   \_ _| _ \
+\__ \\ \/\/ / _ \|  _/ .` |/ _ \| |) | ||  _/
+|___/ \_/\_/_/ \_\_| |_|\_/_/ \_\___/___|_|
 
-<br/>
+   _   ___ _____ _  _ ___  ___  _  _     ___ ___
+  /_\ | __|_   _| || | _ \/ _ \| \| |___| __| _ \
+ / _ \| _|  | | | __ |   / (_) | .` |___| _||   /
+/_/ \_\___| |_| |_||_|_|_\\___/|_|\_|   |_| |_|_\
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=3200&pause=1200&color=D4AF37&center=true&vCenter=true&repeat=true&width=720&lines=Building+software+that+solves+real+problems;Python+%E2%80%A2+React+%E2%80%A2+Django+%E2%80%A2+Flask+%E2%80%A2+Node.js;Currently+engineering%3A+PortFolioMaker;Engineering+discipline.+Creative+execution.)](https://git.io/typing-svg)
+```
 
-<br/>
-
-<img src="https://img.shields.io/github/followers/Aethron-fr?label=Followers&style=flat-square&color=D4AF37&labelColor=0A0A0F"/>
-&nbsp;
-<img src="https://komarev.com/ghpvc/?username=Aethron-fr&style=flat-square&color=D4AF37&labelColor=0A0A0F&label=Profile+Views"/>
-&nbsp;
-<img src="https://img.shields.io/github/stars/Aethron-fr?label=Stars&style=flat-square&color=D4AF37&labelColor=0A0A0F"/>
+<sub>FULL-STACK ENGINEER&nbsp;&nbsp;◆&nbsp;&nbsp;WEST BENGAL, INDIA&nbsp;&nbsp;◆&nbsp;&nbsp;EST. IN CODE</sub>
 
 </div>
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:D4AF37,100:0A0A0F&height=1&section=header" width="100%"/>
+```
+┌──────────────────────────────────────────────────────────────────┐
+│  guest@aethron-fr ~ %                                             │
+├──────────────────────────────────────────────────────────────────┤
+│                                                                    │
+│   OS            Full-Stack Software Development                  │
+│   Host          West Bengal, India  (UTC +5:30)                   │
+│   Languages     Python · JavaScript · HTML5 · CSS3                │
+│   Frameworks    React · Django · Flask · Node.js · Express        │
+│   Data Layer    MongoDB · SQLite · Firebase                       │
+│   Editor        VS Code                                           │
+│   Currently     Building PortFolioMaker                           │
+│   Status        Open to open-source collaboration                 │
+│                                                                    │
+└──────────────────────────────────────────────────────────────────┘
+```
 
 <br/>
 
-### ABOUT
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=15&duration=3600&pause=1400&color=D4AF37&center=true&vCenter=true&repeat=true&width=700&lines=Engineering+discipline.+Creative+execution.;Reading+the+codebase+before+writing+a+single+line.;Shipping+software%2C+not+just+commits.)](https://git.io/typing-svg)
 
-<table>
-<tr>
-<td width="65%" valign="top">
+<br/>
 
-I'm a full-stack developer focused on building production-grade software — clean architecture, considered UX, and code that holds up under real use. My work spans frontend interfaces, backend systems, and the connective tissue between them.
+<img src="https://img.shields.io/github/followers/Aethron-fr?label=followers&style=flat-square&color=D4AF37&labelColor=0A0A0F"/>
+<img src="https://komarev.com/ghpvc/?username=Aethron-fr&style=flat-square&color=D4AF37&labelColor=0A0A0F&label=views"/>
+<img src="https://img.shields.io/github/stars/Aethron-fr?label=stars&style=flat-square&color=D4AF37&labelColor=0A0A0F"/>
 
-Currently building **PortFolioMaker**, and deepening my command of React, Django, Flask, and Node.js. I care more about shipping things that work correctly than things that merely look finished.
+<br/><br/>
 
-**Open to:** open-source collaboration, technical discussion, and interesting problems.
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0A0A0F,50:D4AF37,100:0A0A0F&height=1&section=header" width="100%"/>
 
-</td>
-<td width="35%" valign="top" align="center">
+<br/>
 
 ```
-┌──────────────────────┐
-│  STATUS    Available │
-│  FOCUS     Full-Stack│
-│  BASE      India (IST│
-│  LANGUAGE  EN / BN    │
-└──────────────────────┘
+$ cat about.md
 ```
 
-</td>
-</tr>
-</table>
+I write software the way I'd want to inherit it — readable, deliberate, and built to survive contact with real users. My work moves across the stack: interfaces that feel considered on the frontend, systems that hold their shape under load on the backend, and the discipline to keep both honest.
+
+Currently deepening React, Django, Flask, and Node.js while building **PortFolioMaker**. I'd rather spend a day understanding a problem correctly than a week patching a wrong solution.
 
 <br/>
 
@@ -67,15 +71,14 @@ Currently building **PortFolioMaker**, and deepening my command of React, Django
 
 <br/>
 
-### TECHNICAL EXPERTISE
+```
+$ cat stack.json
+```
 
 <table align="center" width="100%">
+<tr><th align="left" width="18%">module</th><th align="left">dependencies</th></tr>
 <tr>
-<th align="left" width="20%">Category</th>
-<th align="left">Stack</th>
-</tr>
-<tr>
-<td><b>Languages</b></td>
+<td><code>languages</code></td>
 <td>
 <img src="https://img.shields.io/badge/Python-0A0A0F?style=flat-square&logo=python&logoColor=D4AF37"/>
 <img src="https://img.shields.io/badge/JavaScript-0A0A0F?style=flat-square&logo=javascript&logoColor=D4AF37"/>
@@ -84,7 +87,7 @@ Currently building **PortFolioMaker**, and deepening my command of React, Django
 </td>
 </tr>
 <tr>
-<td><b>Frameworks</b></td>
+<td><code>frameworks</code></td>
 <td>
 <img src="https://img.shields.io/badge/React-0A0A0F?style=flat-square&logo=react&logoColor=D4AF37"/>
 <img src="https://img.shields.io/badge/Node.js-0A0A0F?style=flat-square&logo=node.js&logoColor=D4AF37"/>
@@ -94,7 +97,7 @@ Currently building **PortFolioMaker**, and deepening my command of React, Django
 </td>
 </tr>
 <tr>
-<td><b>Data & Cloud</b></td>
+<td><code>data</code></td>
 <td>
 <img src="https://img.shields.io/badge/MongoDB-0A0A0F?style=flat-square&logo=mongodb&logoColor=D4AF37"/>
 <img src="https://img.shields.io/badge/SQLite-0A0A0F?style=flat-square&logo=sqlite&logoColor=D4AF37"/>
@@ -102,7 +105,7 @@ Currently building **PortFolioMaker**, and deepening my command of React, Django
 </td>
 </tr>
 <tr>
-<td><b>Tooling</b></td>
+<td><code>tooling</code></td>
 <td>
 <img src="https://img.shields.io/badge/Git-0A0A0F?style=flat-square&logo=git&logoColor=D4AF37"/>
 <img src="https://img.shields.io/badge/GitHub-0A0A0F?style=flat-square&logo=github&logoColor=D4AF37"/>
@@ -118,33 +121,18 @@ Currently building **PortFolioMaker**, and deepening my command of React, Django
 
 <br/>
 
-### STATISTICS
+```
+$ git log --oneline --no-merges principles
+```
 
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=Aethron-fr&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&bg_color=0A0A0F&title_color=D4AF37&icon_color=D4AF37&text_color=C9C9C9&border_color=1a1a1a" height="172" alt="stats"/>
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Aethron-fr&hide_border=true&background=0A0A0F&ring=D4AF37&fire=D4AF37&currStreakLabel=D4AF37&sideLabels=C9C9C9&currStreakNum=FFFFFF&sideNums=FFFFFF&dates=8B8B8B&border=1a1a1a" height="172" alt="streak"/>
-
-<br/><br/>
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aethron-fr&hide_border=true&layout=compact&langs_count=8&bg_color=0A0A0F&title_color=D4AF37&text_color=C9C9C9&border_color=1a1a1a" height="180" alt="top langs"/>
-
-</div>
-
-<br/>
-
-<details>
-<summary><b>Extended profile metrics</b></summary>
-<br/>
-
-<div align="center">
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Aethron-fr&theme=github_dark" width="100%" alt="summary"/>
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Aethron-fr&theme=github_dark" width="32%" alt="repos per lang"/>
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Aethron-fr&theme=github_dark" width="32%" alt="commit lang"/>
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Aethron-fr&theme=github_dark&utcOffset=5.5" width="32%" alt="productive time"/>
-</div>
-
-</details>
+```
+a1c44e9  enforce:   correctness before speed, always
+7d28b31  refactor:  prefer clarity over cleverness in every diff
+3f90a02  fix:       the real problem, not the symptom that's easiest to patch
+e61b7c4  perf:      treat performance as a requirement, not a nice-to-have
+9a4d10c  feat:      ship in the open — open source, code review, shared ownership
+2b8e5f1  docs:      write it down so the next person (probably me) doesn't suffer
+```
 
 <br/>
 
@@ -152,33 +140,51 @@ Currently building **PortFolioMaker**, and deepening my command of React, Django
 
 <br/>
 
-### ACTIVITY
+```
+$ ./scripts/show_stats.sh --metrics
+```
 
 <div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=Aethron-fr&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&bg_color=0A0A0F&title_color=D4AF37&icon_color=D4AF37&text_color=C9C9C9&border_color=1a1a1a" height="170" alt="stats"/>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Aethron-fr&hide_border=true&background=0A0A0F&ring=D4AF37&fire=D4AF37&currStreakLabel=D4AF37&sideLabels=C9C9C9&currStreakNum=FFFFFF&sideNums=FFFFFF&dates=8B8B8B&border=1a1a1a" height="170" alt="streak"/>
+
+<br/><br/>
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aethron-fr&hide_border=true&layout=compact&langs_count=8&bg_color=0A0A0F&title_color=D4AF37&text_color=C9C9C9&border_color=1a1a1a" height="170" alt="top langs"/>
+
+<br/><br/>
+
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=Aethron-fr&hide_border=true&area=true&color=D4AF37&line=D4AF37&point=FFFFFF&area_color=D4AF37&bg_color=0A0A0F" width="100%" alt="activity graph"/>
+
 </div>
-
-<br/>
-
-<div align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=Aethron-fr&theme=onedark&no-frame=true&no-bg=true&margin-w=8&row=1&column=7" alt="trophies"/>
-</div>
-
-<br/>
 
 <details>
-<summary><b>Contribution snake (setup instructions)</b></summary>
+<summary><code>$ --verbose</code> &nbsp;<sub>extended metrics, trophies, contribution snake</sub></summary>
 <br/>
 
 <div align="center">
+
+<img src="https://github-profile-trophy.vercel.app/?username=Aethron-fr&theme=onedark&no-frame=true&no-bg=true&margin-w=8&row=1&column=7" alt="trophies"/>
+
+<br/><br/>
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Aethron-fr&theme=github_dark" width="100%" alt="summary"/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Aethron-fr&theme=github_dark" width="32%" alt="repos per lang"/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Aethron-fr&theme=github_dark" width="32%" alt="commit lang"/>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Aethron-fr&theme=github_dark&utcOffset=5.5" width="32%" alt="productive time"/>
+
+<br/><br/>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Aethron-fr/Aethron-fr/output/github-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Aethron-fr/Aethron-fr/output/github-snake.svg" />
   <img alt="contribution snake" src="https://raw.githubusercontent.com/Aethron-fr/Aethron-fr/output/github-snake.svg" />
 </picture>
+
 </div>
 
-Create `.github/workflows/snake.yml` in your `Aethron-fr/Aethron-fr` repo:
+To enable the snake, add `.github/workflows/snake.yml` to the `Aethron-fr/Aethron-fr` repo:
 
 ```yaml
 name: Generate Snake
@@ -213,14 +219,15 @@ jobs:
 
 <br/>
 
-### SELECTED WORK
+```
+$ ls -la ./projects/
+```
 
 <div align="center">
 
 <a href="https://github.com/Aethron-fr/PortFolioMaker">
 <img src="https://github-readme-stats.vercel.app/api/pin/?username=Aethron-fr&repo=PortFolioMaker&hide_border=true&description_lines_count=2&bg_color=0A0A0F&title_color=D4AF37&text_color=C9C9C9&icon_color=D4AF37&border_color=1a1a1a"/>
 </a>
-&nbsp;
 <a href="https://github.com/Aethron-fr/rock-paper-scissor-python">
 <img src="https://github-readme-stats.vercel.app/api/pin/?username=Aethron-fr&repo=rock-paper-scissor-python&hide_border=true&description_lines_count=2&bg_color=0A0A0F&title_color=D4AF37&text_color=C9C9C9&icon_color=D4AF37&border_color=1a1a1a"/>
 </a>
@@ -233,27 +240,9 @@ jobs:
 
 <br/>
 
-### PRINCIPLES
-
-<div align="center">
-
-| Discipline | Standard |
-|:--|:--|
-| **Code Quality** | Clean, readable, and built to scale |
-| **Architecture** | Solve the real problem, not the easy version of it |
-| **Reliability** | Performance and correctness are not optional |
-| **Growth** | Deliberate practice across the full stack |
-| **Collaboration** | Open source, code review, shared ownership |
-
-</div>
-
-<br/>
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0A0A0F,50:D4AF37,100:0A0A0F&height=1&section=header" width="100%"/>
-
-<br/>
-
-### CONNECT
+```
+$ cat contact.cfg
+```
 
 <div align="center">
 
@@ -269,9 +258,9 @@ jobs:
 <br/>
 
 <div align="center">
-<sub>Architecture over shortcuts. Substance over spectacle.</sub>
+<code>$ echo "thanks for reading the source." █</code>
 </div>
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A0A0F,50:14141C,100:0A0A0F&height=140&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0A0A0F,100:0A0A0F&height=4&section=footer" width="100%"/>
